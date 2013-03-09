@@ -3,9 +3,10 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Simple CMS | <%= @page_title || 'Admin Area' %></title>
+		<%= stylesheet_link_tag "admin" %>
 	</head>
 	<body>
-		<header>
+		<header class="shadow">
 			<h1>Simple CMS Admin</h1>
 		</header>
 		<div id="main">
@@ -19,7 +20,8 @@
 			</div>
 		</div>
 		<footer>
-			<p id="copyright">&copy; Alexander Costa</p>
+			<% time = Time.new %>
+			<p id="copyright">&copy;<%= time.year %> Alexander Costa</p>
 		</footer>
 	</body>
 </html>
