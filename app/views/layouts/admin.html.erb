@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Simple CMS | Admin Area</title>
+		<title>Simple CMS | <%= @page_title || 'Admin Area' %></title>
 	</head>
 	<body>
 		<header>
@@ -11,7 +11,7 @@
 		<div id="main">
 			<% if !flash[:notice].blank? %>
 				<div class="notice">
-				<%= flash[:notice] %>
+				<p><%= flash[:notice] %></p>
 				</div>
 			<% end %>
 			<div id="content">
