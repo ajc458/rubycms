@@ -4,9 +4,11 @@
 		<meta charset="utf-8" />
 		<title>Simple CMS | <%= @page_title || 'Admin Area' %></title>
 		<%= stylesheet_link_tag "admin" %>
+		<%= javascript_include_tag('test') %>
 	</head>
 	<body>
 		<header class="shadow">
+			<%= image_tag('rails.png') %>
 			<h1>Simple CMS Admin</h1>
 		</header>
 		<div id="main">
