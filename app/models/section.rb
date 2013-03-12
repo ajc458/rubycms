@@ -4,6 +4,8 @@ class Section < ActiveRecord::Base
   has_many :section_edits
   has_many :editors, :through => :section_edits, :class_name => 'AdminUser'
   
-  attr_accessible :name, :position, :visible, :content_type, :content
+  validates_presence_of :name
+  
+  attr_accessible :page_id, :name, :position, :visible, :content_type, :content
   
 end

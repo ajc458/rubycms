@@ -4,10 +4,12 @@
 
 <%= link_to('Add New Page', {:action => 'new'}, :class => 'new-link') %>
 
+<div><%= pluralize(@pages.size, 'page') %> found</div>
 <table>
 	<tbody>
 		<tr>
-			<th>&nbsp;</th>
+			<th>Position</th>
+			<th>Subject</th>
 			<th>Permalink</th>
 			<th>Page</th>
 			<th>Visible</th>
@@ -17,9 +19,10 @@
 		<% @pages.each do |page| %>
 		<tr>
 			<td><%= page.position %></td>
+			<td><%= page.subject_id %></td>
 			<td><%= page.permalink %></td>
 			<td><%= page.name %></td>
-			<td><%= page.visible ? 'Yes' : 'No' %></td>
+			<td><%= status_tag(page.visible) %></td>
 			<td><%= page.sections.size %></td>
 			<td>
 				<%= link_to('Show', {:action => 'show', :id => page.id}, :class => 'action show') %>

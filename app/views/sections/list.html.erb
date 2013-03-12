@@ -4,10 +4,12 @@
 
 <%= link_to('Add New Section', {:action => 'new'}, :class => 'new-link') %>
 
+<div><%= pluralize(@sections.size, 'section') %> found</div>
 <table>
 	<tbody>
 		<tr>
-			<th>&nbsp;</th>
+			<th>Position</th>
+			<th>Page</th>
 			<th>Section</th>
 			<th>Content Type</th>
 			<th>Content</th>
@@ -17,10 +19,11 @@
 		<% @sections.each do |section| %>
 		<tr>
 			<td><%= section.position %></td>
+			<td><%= section.page_id %></td>
 			<td><%= section.name %></td>
 			<td><%= section.content_type %></td>
 			<td><%= section.content %></td>
-			<td><%= section.visible ? 'Yes' : 'No' %></td>
+			<td><%= status_tag(section.visible) %></td>
 			<td>
 				<%= link_to('Show', {:action => 'show', :id => section.id}, :class => 'action show') %>
 				<%= link_to('Edit', {:action => 'edit', :id => section.id}, :class => 'action edit') %>

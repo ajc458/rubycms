@@ -4,6 +4,7 @@
 
 <%= link_to('Add New Subject', {:action => 'new'}, :class => 'new-link') %>
 
+<div><%= pluralize(@subjects.size, 'subject') %> found</div>
 <table>
 	<tbody>
 		<tr>
@@ -14,10 +15,10 @@
 			<th>Actions</th>
 		</tr>
 		<% @subjects.each do |subject| %>
-		<tr>
+		<tr class="<%= cycle('odd', 'even') %>">
 			<td><%= subject.position %></td>
 			<td><%= subject.name %></td>
-			<td><%= subject.visible ? 'Yes' : 'No' %></td>
+			<td><%= status_tag(subject.visible) %></td>
 			<td><%= subject.pages.size %></td>
 			<td>
 				<%= link_to('Show', {:action => 'show', :id => subject.id}, :class => 'action show') %>

@@ -13,6 +13,7 @@ class PagesController < ApplicationController
   
   def show
     @page = Page.find(params[:id])
+    @page_count = Page.count + 1
   end
   
   def new
@@ -29,12 +30,14 @@ class PagesController < ApplicationController
       redirect_to(:action => 'list')
     else
       # if fails, redisplay form
+      @page_count = Page.count + 1
       render('new')
     end
   end
   
   def edit
     @page = Page.find(params[:id])
+    @page_count = Page.count
   end
   
   def update
@@ -47,6 +50,7 @@ class PagesController < ApplicationController
       redirect_to(:action => 'show', :id => @page.id)
     else
       # if fails, redisplay form
+      @page_count = Page.count
       render('edit')
     end
   end

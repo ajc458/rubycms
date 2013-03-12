@@ -15,4 +15,7 @@ class DemoController < ApplicationController
     render(:text => 'Hello Everyone!')
   end
   
+  def sandbox
+  end
+  
 end

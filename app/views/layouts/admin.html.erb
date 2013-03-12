@@ -8,15 +8,14 @@
 	</head>
 	<body>
 		<header class="shadow">
-			<%= image_tag('rails.png') %>
 			<h1>Simple CMS Admin</h1>
 		</header>
+		<% if !flash[:notice].blank? %>
+			<div class="notice">
+			<p><%= flash[:notice] %></p>
+			</div>
+		<% end %>
 		<div id="main">
-			<% if !flash[:notice].blank? %>
-				<div class="notice">
-				<p><%= flash[:notice] %></p>
-				</div>
-			<% end %>
 			<div id="content">
 				<%= yield %>
 			</div>

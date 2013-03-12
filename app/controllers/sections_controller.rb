@@ -17,6 +17,7 @@ class SectionsController < ApplicationController
   
   def new
     @section = Section.new
+    @section_count = Section.count + 1
   end
   
   def create
@@ -29,12 +30,14 @@ class SectionsController < ApplicationController
       redirect_to(:action => 'list')
     else
       # if fails, redisplay form
+      @section_count = Section.count + 1
       render('new')
     end
   end
   
   def edit
     @section = Section.find(params[:id])
+    @section_count = Section.count
   end
   
   def update
@@ -47,6 +50,7 @@ class SectionsController < ApplicationController
       redirect_to(:action => 'show', :id => @section.id)
     else
       # if fails, redisplay form
+      @section_count = Section.count
       render('edit')
     end
   end

@@ -1,0 +1,40 @@
+<% text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu lectus nisl. Fusce turpis nulla, pretium vel aliquam nec, rutrum sed augue. Vivamus erat elit, rutrum vehicula euismod in, blandit in odio. Nunc tempor gravida purus in lacinia. Curabitur congue lobortis nibh ac suscipit. Fusce sed posuere quam. Lorem ipsum dolor sit amet, consectetur test@email.com adipiscing elit. Etiam sed lacus sem. Maecenas mi justo, varius porttitor malesuada vitae, blandit et ligula. Mauris vestibulum lectus sed arcu volutpat quis iaculis quam hendrerit. Pellentesque pharetra nunc sit amet tortor molestie at sodales felis porta. Vestibulum semper mattis purus sed porta. Proin tincidunt, lacus quis rhoncus sagittis, orci sem sagittis justo, pharetra volutpat arcu enim sit amet arcu. Aliquam erat volutpat.'.html_safe %>
+
+<h2>word_wrap</h2>
+<%= word_wrap(text, :line_width => 30) %>
+<hr />
+
+<h2>simple_format</h2>
+<%= simple_format(text) %>
+<hr />
+
+<h2>simple_format + word_wrap</h2>
+<%= simple_format(word_wrap(text, :line_width => 30)) %>
+<hr />
+
+<h2>truncate</h2>
+<%= truncate(text, :length => 40, :omission => '...') %>
+<hr />
+
+<h2>excerpt</h2>
+<%= excerpt(text, 'consectetur', :radius => 20, :omission => '...') %>
+<hr />
+
+<h2>highlight</h2>
+<%= highlight(text, 'Mauris vestibulum') %>
+<hr />
+<%= highlight(text, ['vestibulum', 'adipiscing'], :highlighter => '<em>\1</em>') %>
+<hr />
+
+<h2>pluralize</h2>
+<%= 'ox'.pluralize %><br />
+<% (1..3).each do |n| %>
+	<%= pluralize(n, 'octopus') %><br />
+	<%= pluralize(n, 'snipe', 'snope') %><br />
+<% end %>
+<hr />
+
+<h2>cycle</h2>
+<% 5.times do %>
+	<%= cycle('red', 'green', 'blue') %><br />
+<% end %>

@@ -1,7 +1,9 @@
 class Subject < ActiveRecord::Base
   has_many :pages
   
-  attr_accessible :name, :position, :visible
+  validates_presence_of :name
+  
+  attr_accessible :name, :position, :visible, :created_at
   
   scope :visible, where(:visible => true)
   scope :invisible, where(:visible => false)
